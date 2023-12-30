@@ -6,4 +6,4 @@ ARG USERNAME=vscode
 
 # Poetry
 ARG POETRY_VERSION="1.2.0"
-RUN curl -sSL https://install.python-poetry.org | ${POETRY_VERSION} python3 -
+RUN curl -sSL https://install.python-poetry.org | POETRY_VERSION=${POETRY_VERSION} python3 -
