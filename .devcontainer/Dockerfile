@@ -4,4 +4,4 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 
 # Poetry
 ARG POETRY_VERSION="1.2.0"
-RUN curl -sSL https://install.python-poetry.org | ${POETRY_VERSION} python3 -
+RUN su vscode -c "curl -sSL https://install.python-poetry.org | ${POETRY_VERSION} python3 -"
