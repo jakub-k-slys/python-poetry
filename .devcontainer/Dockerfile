@@ -2,6 +2,8 @@
 ARG VARIANT="3.12-bullseye"
 FROM mcr.microsoft.com/devcontainers/python:1-${VARIANT}
 
+ARG USERNAME=vscode
+
 # Poetry
 ARG POETRY_VERSION="1.2.0"
-RUN su vscode -c "curl -sSL https://install.python-poetry.org | ${POETRY_VERSION} python3 -"
+RUN curl -sSL https://install.python-poetry.org | ${POETRY_VERSION} python3 -
