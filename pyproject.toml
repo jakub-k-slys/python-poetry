@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "sandbox"
 version = "0.1.0"
-description = "Playground for python and poetry"
+description = "Playground for Python and Poetry"
 authors = ["Jakub Slys <jakub@slys.dev>"]
-license = "MIT License"
+license = "LICENSE"
 readme = "README.md"
 
 [tool.poetry.dependencies]
