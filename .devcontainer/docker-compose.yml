@@ -9,6 +9,12 @@ services:
     volumes:
       - ../..:/workspaces:cached
     command: sleep infinity
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - default
   
   db:
     image: postgres:latest
@@ -19,6 +25,10 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: postgres
+    networks:
+      - default
 
 volumes:
   postgres-data:
+networks:
+  default:
