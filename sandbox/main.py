@@ -4,6 +4,7 @@ import uvicorn
 
 app = FastAPI()
 
+
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
@@ -15,7 +16,7 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 
 def main():
-   print('Hello world!!!')
+    print('Hello world!!!')
 
 
 if __name__ == "__main__":
