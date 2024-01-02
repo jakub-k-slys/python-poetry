@@ -1,14 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.231.6/containers/python-3
 {
-    "name": "Python 3",
-    "build": {
-      "dockerfile": "Dockerfile",
-      "args": {
-        "VARIANT": "3.12-bullseye",
-        "POETRY_VERSION": "1.2.0"
-      }
-    },
+    "name": "Python 3 and PostgreSQL",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "sandbox",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
     // Set *default* container specific settings.json values on container create.
     "settings": {
     },
@@ -17,7 +14,9 @@
         "ms-azuretools.vscode-docker",
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "ms-python.pylint",
+        "ms-python.autopep8"
     ],
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],

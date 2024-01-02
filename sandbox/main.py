@@ -1,5 +1,23 @@
+from typing import Union
+from fastapi import FastAPI
+import uvicorn
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
+
+
 def main():
    print('Hello world!!!')
 
+
 if __name__ == "__main__":
-    main()
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True, log_level="debug",
+                workers=1, limit_concurrency=1, limit_max_requests=1)
