@@ -1,6 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
-import uvicorn
+from sqlalchemy import create_engine
+from os import environ
 
 app = FastAPI()
 
@@ -15,28 +16,19 @@ def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
 
-def singleton(cls):
-    instances = {}
-
-    def wrapper(*args, **kwargs):
-        if cls not in instances:
-            instances[cls] = cls(*args, **kwargs)
-        return instances[cls]
-    return wrapper
-
-
-@singleton
-class MySingleton():
-    def foo(self):
-        pass
-
-
 def main():
+    user = environ['POSTGRES_USER']
+    password = environ['POSTGRES_PASSWORD']
+    hostname = environ['POSTGRES_HOSTNAME']
+    database_name = environ['POSTGRES_DB']
+    psql_host = f'postgresql+psycopg2://{
+        user}:{password}@{hostname}/{database_name}'
+    engine = create_engine(psql_host)
     print('Hello world!!!')
-    s1 = MySingleton()
-    s2 = MySingleton()
-    print(id(s1))
-    print(id(s2))
+    engine = engine.connect()
+    with Sess
+
+    print('Hello world!!!')
 
 
 if __name__ == "__main__":
