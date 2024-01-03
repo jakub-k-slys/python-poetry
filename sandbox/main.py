@@ -26,9 +26,7 @@ def main():
     engine = create_engine(psql_host)
     print('Hello world!!!')
     engine = engine.connect()
-    with Sess
-
-    print('Hello world!!!')
+    print(engine)
 
 
 if __name__ == "__main__":
